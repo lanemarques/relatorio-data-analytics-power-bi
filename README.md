@@ -108,6 +108,10 @@ Visualizações:
 
 Essa página foi construída com foco em storytelling, permitindo ao usuário explorar diferentes perspectivas do negócio de forma interativa.
 
+## 🖼️ Visual do Projeto
+
+![Análise Dinâmica](analise-dinamica.png)
+
 ---
 
 ## 📊 Principais Visuais Utilizados

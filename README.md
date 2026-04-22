@@ -2,14 +2,13 @@
 
 ## 📌 Descrição
 
-Este projeto foi desenvolvido com o objetivo de explorar dados de vendas utilizando o Power BI, aplicando conceitos de modelagem de dados, DAX e design interativos.
+Este projeto foi desenvolvido com o objetivo de explorar dados de vendas utilizando o Power BI, aplicando conceitos de modelagem de dados, DAX e design interativo.
 
-O relatório foi estruturado para permitir uma análise progressiva, saindo de uma visão geral até análises mais detalhadas sobre desempenho de produtos, países e comportamento ao longo do tempo.
+O relatório foi estruturado para permitir uma análise progressiva, saindo de uma visão geral até análises mais detalhadas sobre desempenho de produtos, países e comportamento ao longo do tempo, evoluindo para uma abordagem dinâmica com o uso de parâmetros.
 
 A base utilizada neste projeto foi disponibilizada pela professora no repositório:
 
 🔗 https://github.com/julianazanelatto/power_bi_analyst
-
 
 ---
 
@@ -19,17 +18,21 @@ A base utilizada neste projeto foi disponibilizada pela professora no repositór
 * Desenvolver medidas em DAX
 * Explorar diferentes visuais analíticos
 * Gerar insights a partir dos dados
+* Implementar análise dinâmica com parâmetros
 
 ---
 
 ## 🗂️ Estrutura do Relatório
 
-O projeto foi organizado em **4 páginas**, sendo:
+O projeto foi organizado em **5 páginas**, sendo:
 
+---
 
 ### 📄 Página 1 — Home Page
 
-Prepara o usuário para exploração do relatório
+Prepara o usuário para exploração do relatório.
+
+---
 
 ### 📄 Página 2 — Visão Geral
 
@@ -78,14 +81,44 @@ Análise aprofundada de performance:
 
 ---
 
+### 📄 Página 5 — Análise Dinâmica de Performance Financeira
+
+Página interativa criada com o uso de parâmetros, permitindo maior flexibilidade na exploração dos dados.
+
+Funcionalidades:
+
+* Seleção dinâmica de dimensões:
+
+  * Country
+  * Product
+  * Segment
+
+* Alternância entre métricas:
+
+  * Total Sales
+  * Total Profit
+  * Total Units Sold
+
+* Análise temporal por mês e ano, evitando agregações indevidas entre períodos
+
+Visualizações:
+
+* Gráfico de barras (categoria dinâmica)
+* Gráfico de linha (métricas ao longo do tempo)
+
+Essa página foi construída com foco em storytelling, permitindo ao usuário explorar diferentes perspectivas do negócio de forma interativa.
+
+---
+
 ## 📊 Principais Visuais Utilizados
 
 * 📈 Gráfico de área → Evolução temporal das vendas
-* 📊 Gráfico de Barras → Comparação entre categorias
-* 🔵 Gráfico de Dispersão → Relação entre métricas
+* 📊 Gráfico de barras → Comparação entre categorias
+* 🔵 Gráfico de dispersão → Relação entre métricas
 * 🟩 Treemap → Distribuição geográfica
-* 📦 Gráfico Empilhado → Participação dos TOP 3 produtos
+* 📦 Gráfico empilhado → Participação dos TOP 3 produtos
 * 📊 Histograma → Distribuição de unidades vendidas
+* 📉 Gráfico de linha → Evolução dinâmica de métricas
 
 ---
 
@@ -93,10 +126,12 @@ Análise aprofundada de performance:
 
 Exemplos de medidas utilizadas:
 
-```DAX id="7j29sd"
+```DAX
 Total Sales = SUM(Financials[Sales])
 
 Total Profit = SUM(Financials[Profit])
+
+Total Units Sold = SUM(Financials[Units Sold])
 
 Top 3 Sales Total = CALCULATE([Total Sales], TOPN(3, ALL(Financials[Product]), [Total Sales], DESC))
 
@@ -105,7 +140,7 @@ Top 3 Product = IF([Rank Product] <= 3, [Total Sales])
 
 ---
 
-## 🧩  Modelagem de Dados utilizados:
+## 🧩 Modelagem de Dados
 
 Foi implementado um modelo dimensional simplificado, com a separação da dimensão de tempo (Calendar), permitindo análises temporais mais eficientes.
 
@@ -117,9 +152,21 @@ A tabela calendário foi enriquecida com:
 * Ano
 * Dia da semana
 * Número da semana
-* Número do Mês
+* Número do mês
 * Nome do mês
-* Nome do Semestre 
+* Nome do semestre
+
+---
+
+## 🎛️ Análise Dinâmica com Parâmetros
+
+Foi implementada uma nova abordagem de análise utilizando parâmetros de campos no Power BI, permitindo:
+
+* Alternância dinâmica entre dimensões de análise
+* Troca interativa de métricas financeiras
+* Exploração personalizada dos dados
+
+Essa abordagem proporciona uma experiência mais analítica e próxima de cenários reais de negócio.
 
 ---
 
@@ -140,7 +187,7 @@ Cada ponto representa um período, permitindo identificar padrões de desempenho
 
 ### 🧠 Análise de Cluster (visual)
 
-Mesmo sem a utilização de clusterização automática, foi possível identificar agrupamentos visuais nos dados, a partir da relação entre unidades vendidas e vendas por mês.
+Mesmo sem a utilização de clusterização automática, foi possível identificar agrupamentos visuais nos dados a partir da relação entre unidades vendidas e vendas por mês.
 
 ---
 
@@ -152,15 +199,23 @@ Mesmo sem a utilização de clusterização automática, foi possível identific
 
 ---
 
-📎 Arquivo do Projeto
+## 🔄 Evolução do Projeto
 
-O relatório foi exportado em formato .pbix e também disponibilizado como imagem (.pdf) para visualização.
+Este projeto foi expandido com a criação de uma nova página de análise dinâmica, incorporando parâmetros de campos para permitir maior interatividade e flexibilidade na exploração dos dados.
+
+---
+
+## 📎 Arquivo do Projeto
+
+O relatório foi exportado em formato `.pbix` e também disponibilizado como imagem para visualização.
 
 ---
 
 ## 🚀 Conclusão
 
-O projeto demonstra como o Power BI pode ser utilizado para transformar dados em insights estratégicos, combinando visualizações eficientes, modelagem adequada e análise de dados.
+O projeto demonstra como o Power BI pode ser utilizado para transformar dados em insights estratégicos, evoluindo de análises descritivas para uma abordagem dinâmica e interativa.
+
+A adição de parâmetros amplia a capacidade analítica do relatório, permitindo maior flexibilidade na exploração dos dados e melhor suporte à tomada de decisão.
 
 ---
 
@@ -168,4 +223,10 @@ O projeto demonstra como o Power BI pode ser utilizado para transformar dados em
 
 * Power BI
 * DAX (Data Analysis Expressions)
-* Modelagem Dimensional simplificada
+* Modelagem Dimensional Simplificada
+
+---
+
+## 👩‍💻 Autora
+
+Projeto desenvolvido por **Elaine Marques** como parte do desafio de Power BI.
